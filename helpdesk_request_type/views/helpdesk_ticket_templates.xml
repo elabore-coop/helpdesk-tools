@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_helpdesk_ticket_request_type" name="My Ticket: Request Type"
+        inherit_id="helpdesk_mgmt.portal_helpdesk_ticket_page" priority="40">
+        <xpath expr="//div[@name='portal_ticket_col_0']" position="inside">
+            <div t-if="ticket.request_type_id">
+                <strong>Request type:</strong>
+                <span t-field="ticket.request_type_id" />
+            </div>
+        </xpath>
+    </template>
+
+    <template id="portal_create_ticket_request-type" name="Create Ticket: Request Type"
+        inherit_id="helpdesk_mgmt.portal_create_ticket" priority="40">
+        <xpath expr="//form/div[2]" position="after">
+            <div class="form-group">
+                <label
+                    class="col-md-3 col-sm-4 control-label"
+                    for="request_type"
+                >Request Type
+                </label>
+                <div class="col-md-7 col-sm-8">
+                    <select
+                        class="form-control"
+                        id="request_type"
+                        name="request_type"
+                        required="True"
+                    >
+                        <t t-foreach="request_types" t-as="type">
+                            <option t-attf-value="#{type.id}">
+                                <t t-esc="type.name" />
+                            </option>
+                        </t>
+                    </select>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

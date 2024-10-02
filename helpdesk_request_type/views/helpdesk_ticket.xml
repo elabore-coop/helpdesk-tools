@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="ticket_view_form_request_type" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form.request.type</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
+        <field name="priority" eval="99" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='tag_ids']" position="before">
+                <field name="request_type_id" widget="selection" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="ticket_view_kanban_request_type" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.kanban.request.type</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_kanban" />
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='priority']" position="after">
+                <span style="background:lightsteelblue; font-size:11px">
+                    <field name="request_type_id" />
+                </span>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="ticket_view_tree_request_type" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.tree.request.type</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree" />
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="request_type_id" optional="show" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="ticket_view_search_request_type" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.search.request.type</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.helpdesk_ticket_view_search" />
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='tag_ids']" position="after">
+                <field name="request_type_id" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
