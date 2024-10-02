@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="helpdesk_request_type_view_tree" model="ir.ui.view">
+        <field name="name">helpdesk.request.type.view.tree</field>
+        <field name="model">helpdesk.request.type</field>
+        <field name="arch" type="xml">
+            <tree string="Request Types" editable="top" default_order="sequence">
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="act_helpdesk_request_types_list" model="ir.actions.act_window">
+        <field name="name">Request Types</field>
+        <field name="res_model">helpdesk.request.type</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem
+        id="menu_helpdesk_request_types"
+        action="act_helpdesk_request_types_list"
+        parent="helpdesk_mgmt.helpdesk_ticket_config_main_menu"
+        sequence="99"
+        name="Request Types" />
+
+</odoo>
