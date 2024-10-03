@@ -1,0 +1,52 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_portal_ticket_enriched_description_form
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-03 21:44+0000\n"
+"PO-Revision-Date: 2024-10-03 21:44+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: helpdesk_portal_ticket_enriched_description_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_portal_ticket_enriched_description_form.helpdesk_create_ticket_description
+msgid ""
+"<span class=\"col-md-7 col-sm-8\">Be precise. If there is a bug/error, please describe\n"
+"                    how to reproduce it</span>"
+msgstr ""
+
+#. module: helpdesk_portal_ticket_enriched_description_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_portal_ticket_enriched_description_form.helpdesk_create_ticket_description
+msgid ""
+"<span class=\"col-md-7 col-sm-8\">Link toward error or additional "
+"information</span>"
+msgstr ""
+
+#. module: helpdesk_portal_ticket_enriched_description_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_portal_ticket_enriched_description_form.helpdesk_create_ticket_description
+msgid ""
+"<span class=\"col-md-7 col-sm-8\">Paste here the complete error message (ex: error\n"
+"                    code Odoo)</span>"
+msgstr ""
+
+#. module: helpdesk_portal_ticket_enriched_description_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_portal_ticket_enriched_description_form.helpdesk_create_ticket_description
+msgid "Access"
+msgstr ""
+
+#. module: helpdesk_portal_ticket_enriched_description_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_portal_ticket_enriched_description_form.helpdesk_create_ticket_description
+msgid "Bug report"
+msgstr ""
+
+#. module: helpdesk_portal_ticket_enriched_description_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_portal_ticket_enriched_description_form.helpdesk_create_ticket_description
+msgid "Description"
+msgstr ""
