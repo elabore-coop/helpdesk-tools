@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_tickets_priority_widget_template" name="Priority Widget Template">
+        <span t-attf-class="o_priority_star fa fa-star#{'' if ticket.priority >= '1' else '-o'}" />
+        <span t-attf-class="o_priority_star fa fa-star#{'' if ticket.priority >= '2' else '-o'}" />
+        <span t-attf-class="o_priority_star fa fa-star#{'' if ticket.priority == '3' else '-o'}" />
+    </template>
+
+    <!-- Ticket create form -->
+    <template id="helptdesk_create_ticket_priority" name="Create Ticket: Priority"
+        inherit_id="helpdesk_mgmt.portal_create_ticket" priority="40">
+        <xpath expr="//form/div[2]" position="after">
+            <div class="form-group">
+                <label
+                    class="col-md-3 col-sm-4 control-label"
+                    for="priority"
+                >Priority
+                </label>
+                <div class="col-md-7 col-sm-8">
+                    <select name="priority" t-attf-class="form-control" required="True">
+                        <option value="">Choose a priority...</option>
+                        <t t-foreach="priorities or []" t-as="priority">
+                            <option t-att-value="priority['id']">
+                                <t t-esc="priority['name']" />
+                            </option>
+                        </t>
+                    </select>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+
+    <!-- Tickets portal list -->
+    <template id="portal_ticket_list_priority" name="Ticket Portal List Template : Priority"
+        inherit_id="helpdesk_mgmt.portal_ticket_list">
+        <xpath expr="//thead/tr/th[3]" position="after">
+            <th t-if="groupby == 'none'">Priority</th>
+        </xpath>
+        <xpath expr="//tbody/t/tr/td[3]" position="after">
+            <td>
+                <t
+                    t-call="helpdesk_portal_ticket_priority_form.portal_my_tickets_priority_widget_template" />
+            </td>
+        </xpath>
+    </template>
+
+    <!-- Ticket portal page -->
+    <template id="portal_helpdesk_ticket_page_priority" name="Ticket Portal Template : Priority"
+        inherit_id="helpdesk_mgmt.portal_helpdesk_ticket_page">
+        <xpath expr="//h5/div/span" position="before">
+            <t
+                t-call="helpdesk_portal_ticket_priority_form.portal_my_tickets_priority_widget_template" />
+        </xpath>
+    </template>
+</odoo>
