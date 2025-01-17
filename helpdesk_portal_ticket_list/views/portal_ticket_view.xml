@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <template id="portal_ticket_list_inherit" inherit_id="helpdesk_mgmt.portal_ticket_list">
+        <xpath expr="//td[a[contains(@t-attf-href, '/my/ticket/')]]" position="attributes">
+            <attribute name="style">max-width: 30rem;</attribute>
+        </xpath>
+        <xpath expr="//td/span[@t-esc='ticket.stage_id.name']" position="attributes">
+            <attribute name="t-attf-class">badge #{'text-bg-primary' if ticket.stage_id.fold else 'text-bg-light'}</attribute>
+        </xpath>
+    </template>
+    <template id="portal__my_tickets_inherit" inherit_id="helpdesk_mgmt.portal_my_tickets">
+        <xpath expr="//form/button[@name='create_new_ticket']" position="attributes">
+            <attribute name="style">margin-right: 0px; margin-bottom: 5px; display: inline-block;</attribute>
+        </xpath>
+    </template>
+</odoo>
