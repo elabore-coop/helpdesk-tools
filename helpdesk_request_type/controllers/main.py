@@ -5,22 +5,10 @@ class HelpdeskTicketControllerRequestType(HelpdeskTicketController):
 
     @http.route("/new/ticket", type="http", auth="user", website=True)
     def create_new_ticket(self, **kw):
-        categories = http.request.env["helpdesk.ticket.category"].search(
-            [("active", "=", True)]
-        )
+        res = super(HelpdeskTicketControllerRequestType, self).create_new_ticket(**kw)
         request_types = http.request.env["helpdesk.request.type"].search([])
-        email = http.request.env.user.email
-        name = http.request.env.user.name
-        return http.request.render(
-            "helpdesk_mgmt.portal_create_ticket",
-            {
-                "categories": categories,
-                "teams": self._get_teams(),
-                "email": email,
-                "name": name,
-                "request_types": request_types
-            },
-        )
+        res.qcontext["request_types"] = request_types
+        return res
 
     def _prepare_submit_ticket_vals(self, **kw):
         res = super()._prepare_submit_ticket_vals(**kw)
