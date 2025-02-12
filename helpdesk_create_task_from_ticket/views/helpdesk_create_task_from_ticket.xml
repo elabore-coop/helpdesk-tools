@@ -10,10 +10,10 @@
                 <attribute name="context">
                     {
                       'default_project_id': project_id,
-                      'default_user_ids': user_id,
+                      'default_user_id': user_id,
                       'default_partner_id': partner_id,
-                      'default_service_id': category_id,
-                      'default_request_type_id': request_type_id,
+                      'default_ticket_category_id': category_id,
+                      'default_ticket_request_type_id': request_type_id,
                       'default_priority': priority
                     }
                 </attribute>
