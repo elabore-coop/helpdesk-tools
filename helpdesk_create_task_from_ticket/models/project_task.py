@@ -12,17 +12,50 @@ class ProjectTask(models.Model):
 
     @api.model
     def create(self, vals_list):
-        user_ids = [self.env.context["default_user_ids"]]
+        user_ids = [self.env.context["default_user_id"]]
+        task_service_id, request_type_id = self._match_task_service_and_request_type(
+            ticket_category_id=self.env.context["default_ticket_category_id"],
+            ticket_request_type_id=self.env.context["default_ticket_request_type_id"]
+        )
+
         result = super(ProjectTask, self.with_context(
-            default_user_ids=user_ids
+            default_user_ids=user_ids,
+            default_service_id=task_service_id,
+            default_request_type_id=request_type_id
         )).create(vals_list)
 
         return result
 
     def onchange(self, values, field_name, field_onchange):
-        user_ids = [self.env.context["default_user_ids"]]
+        user_ids = [self.env.context["default_user_id"]]
+        task_service_id, request_type_id = self._match_task_service_and_request_type(
+            ticket_category_id=self.env.context["default_ticket_category_id"],
+            ticket_request_type_id=self.env.context["default_ticket_request_type_id"]
+        )
+
         result = super(ProjectTask, self.with_context(
-            default_user_ids=user_ids
+            default_user_ids=user_ids,
+            default_service_id=task_service_id,
+            default_request_type_id=request_type_id
         )).onchange(values, field_name, field_onchange)
 
         return result
+
+    def _match_task_service_and_request_type(
+            self,
+            ticket_category_id: int,
+            ticket_request_type_id: int
+    ) -> tuple[int, int]:
+        helpdesk_ticket_category = self.env["helpdesk.ticket.category"].search(
+            [("id", "=", ticket_category_id)],
+            limit=1
+        )
+        task_service = self.env["task.service"].search([("name", "=", helpdesk_ticket_category.name)])
+
+        helpdesk_ticket_request_type = self.env["helpdesk.request.type"].search(
+            [("id", "=", ticket_request_type_id)],
+            limit=1
+        )
+        task_request_type = self.env["request.type"].search([("name", "=", helpdesk_ticket_request_type.name)])
+
+        return task_service.id, task_request_type.id
