@@ -3,7 +3,7 @@
 
 {
     "name": "helpdesk_portal_ticket_list",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.1.0",
     "author": "Elabore",
     "website": "https://elabore.coop",
     "maintainer": "Laetitia Da Costa",

@@ -1,15 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <odoo>
     <template id="portal_ticket_list_inherit" inherit_id="helpdesk_mgmt.portal_ticket_list">
-        <xpath expr="//td[a[contains(@t-attf-href, '/my/ticket/')]]" position="attributes">
-            <attribute name="style">max-width: 30rem;</attribute>
-        </xpath>
-        <xpath expr="//td/span[@t-esc='ticket.stage_id.name']" position="attributes">
-            <attribute name="t-attf-class">badge #{'text-bg-primary' if ticket.stage_id.fold else 'text-bg-light'}</attribute>
+        <xpath expr="." position="replace">
+            <t t-if="grouped_tickets">
+                <t t-call="portal.portal_table">
+                    <t t-foreach="grouped_tickets" t-as="tickets">
+                        <thead>
+                            <tr
+                                t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}"
+                            >
+                                <th class="text-left">By</th>
+                                <th class="text-left">Number</th>
+                                <th t-if="groupby == 'none'">Title</th>
+                                <th t-if="groupby == 'category'">
+                                    <em
+                                        class="font-weight-normal text-muted"
+                                    >Tickets in category:</em>
+                                    <span
+                                        class="text-truncate"
+                                        t-field="tickets[0].sudo().category_id.name"
+                                    />
+                                </th>
+                                <th t-if="groupby == 'stage'">
+                                    <em
+                                        class="font-weight-normal text-muted"
+                                    >Tickets in stage:</em>
+                                    <span
+                                        class="text-truncate"
+                                        t-field="tickets[0].sudo().stage_id.name"
+                                    />
+                                </th>
+                                <th t-if="groupby != 'category'">Category</th>
+                                <th t-if="groupby != 'stage'">Stage</th>
+                                <th name="Create Date" style="display: none;" >Create Date</th>
+                                <th name="Last Stage Update" style="display: none;">Last Stage Update</th>
+                                <th name="Close Date" style="display: none;">Close Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="tickets" t-as="ticket">
+                                <tr>
+                                    <td class="text-left">
+                                        <span t-esc="ticket.partner_id.name" />
+                                    </td>
+                                    <td class="text-left">
+                                        <span t-esc="ticket.number" />
+                                    </td>
+                                    <td style="max-width: 30rem;">
+                                        <a
+                                            t-attf-href="/my/ticket/#{ticket.id}?{{ keep_query() }}"
+                                        >
+                                            <span t-field="ticket.name" />
+                                        </a>
+                                    </td>
+                                    <td t-if="groupby != 'category'">
+                                        <span t-esc="ticket.category_id.name" />
+                                    </td>
+                                    <td t-if="groupby != 'stage'">
+                                        <span
+                                            class="badge badge-pill badge-info"
+                                            title="Current stage of the ticket"
+                                            t-esc="ticket.stage_id.name"
+                                            t-attf-class="badge #{'text-bg-primary' if ticket.stage_id.fold else
+                                            'text-bg-light'}"
+                                        />
+                                    </td>
+                                    <td style="display: none;">
+                                        <span t-field="ticket.create_date"/>
+                                    </td>
+                                    <td style="display: none;">
+                                        <span t-field="ticket.last_stage_update"/>
+                                    </td>
+                                    <td style="display: none;">
+                                        <span t-field="ticket.closed_date"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </t>
+                </t>
+            </t>
         </xpath>
     </template>
-    <template id="portal__my_tickets_inherit" inherit_id="helpdesk_mgmt.portal_my_tickets">
+    <template id="portal_my_tickets_inherit" inherit_id="helpdesk_mgmt.portal_my_tickets">
         <xpath expr="//form/button[@name='create_new_ticket']" position="attributes">
             <attribute name="style">margin-right: 0px; margin-bottom: 5px; display: inline-block;</attribute>
         </xpath>
