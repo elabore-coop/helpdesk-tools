@@ -12,34 +12,44 @@ class ProjectTask(models.Model):
 
     @api.model
     def create(self, vals_list):
-        user_ids = [self.env.context["default_user_id"]]
-        task_service_id, request_type_id = self._match_task_service_and_request_type(
-            ticket_category_id=self.env.context["default_ticket_category_id"],
-            ticket_request_type_id=self.env.context["default_ticket_request_type_id"]
-        )
+        if all(key in self.env.context for key in (
+                "default_user_id",
+                "default_ticket_category_id",
+                "default_ticket_request_type_id"
+        )):
+            user_ids = [self.env.context["default_user_id"]]
+            task_service_id, request_type_id = self._match_task_service_and_request_type(
+                ticket_category_id=self.env.context["default_ticket_category_id"],
+                ticket_request_type_id=self.env.context["default_ticket_request_type_id"]
+            )
 
-        result = super(ProjectTask, self.with_context(
-            default_user_ids=user_ids,
-            default_service_id=task_service_id,
-            default_request_type_id=request_type_id
-        )).create(vals_list)
+            return super(ProjectTask, self.with_context(
+                default_user_ids=user_ids,
+                default_service_id=task_service_id,
+                default_request_type_id=request_type_id
+            )).create(vals_list)
 
-        return result
+        return super(ProjectTask, self).create(vals_list)
 
     def onchange(self, values, field_name, field_onchange):
-        user_ids = [self.env.context["default_user_id"]]
-        task_service_id, request_type_id = self._match_task_service_and_request_type(
-            ticket_category_id=self.env.context["default_ticket_category_id"],
-            ticket_request_type_id=self.env.context["default_ticket_request_type_id"]
-        )
+        if all(key in self.env.context for key in (
+                "default_user_id",
+                "default_ticket_category_id",
+                "default_ticket_request_type_id"
+        )):
+            user_ids = [self.env.context["default_user_id"]]
+            task_service_id, request_type_id = self._match_task_service_and_request_type(
+                ticket_category_id=self.env.context["default_ticket_category_id"],
+                ticket_request_type_id=self.env.context["default_ticket_request_type_id"]
+            )
 
-        result = super(ProjectTask, self.with_context(
-            default_user_ids=user_ids,
-            default_service_id=task_service_id,
-            default_request_type_id=request_type_id
-        )).onchange(values, field_name, field_onchange)
+            return super(ProjectTask, self.with_context(
+                default_user_ids=user_ids,
+                default_service_id=task_service_id,
+                default_request_type_id=request_type_id
+            )).onchange(values, field_name, field_onchange)
 
-        return result
+        return super(ProjectTask, self).onchange(values, field_name, field_onchange)
 
     def _match_task_service_and_request_type(
             self,
