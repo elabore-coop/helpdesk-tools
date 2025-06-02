@@ -3,7 +3,7 @@
 
 {
     "name": "helpdesk_user_default_ticket_team",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.1.0",
     "author": "Elabore",
     "website": "https://elabore.coop",
     "maintainer": "Stéphan Sainléger",
@@ -14,6 +14,7 @@
     "depends": [
         "base",
         "helpdesk_mgmt",
+        "helpdesk_mgmt_project",
     ],
     "qweb": [],
     "external_dependencies": {
