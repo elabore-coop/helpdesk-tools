@@ -4,7 +4,7 @@
     "name": "helpdesk_convert_ticket_to_task",
     "version": "16.0.1.0.0",
     "author": "Elabore",
-    "website": "https://elabore.coop",
+    "website": "https://github.com/elabore-coop/helpdesk-tools",
     "maintainer": "Quentin Mondot",
     "license": "AGPL-3",
     "category": "Tools",

@@ -5,7 +5,7 @@
     "name": "helpdesk_user_default_ticket_team",
     "version": "16.0.1.1.0",
     "author": "Elabore",
-    "website": "https://elabore.coop",
+    "website": "https://github.com/elabore-coop/helpdesk-tools",
     "maintainer": "Stéphan Sainléger",
     "license": "AGPL-3",
     "category": "Tools",
