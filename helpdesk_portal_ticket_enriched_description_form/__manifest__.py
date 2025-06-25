@@ -9,7 +9,7 @@
     "maintainer": "Stéphan Sainléger",
     "license": "AGPL-3",
     "category": "Tools",
-    "summary": "Add fieds in ticket creation portal form to enrich description content.",
+    "summary": "Add fieds in ticket creation portal form to enrich description data.",
     # any module necessary for this one to work correctly
     "depends": [
         "base",

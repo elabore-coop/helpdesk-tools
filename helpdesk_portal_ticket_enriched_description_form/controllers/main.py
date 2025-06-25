@@ -1,4 +1,3 @@
-import odoo.http as http
 from odoo import _
 from odoo.addons.helpdesk_mgmt.controllers.main import HelpdeskTicketController
 
@@ -9,15 +8,21 @@ class HelpdeskTicketControllerDescription(HelpdeskTicketController):
         description = ""
         if kw.get("small_description", False):
             description = (
-                description + "<b>%s</b><br/>" % _(u"DESCRIPTION:") + kw["small_description"]
+                description
+                + "<b>%s</b><br/>" % _("DESCRIPTION:")
+                + kw["small_description"]
             )
             del kw["small_description"]
         if kw.get("access", False):
-            description = description + "<br/><br/><b>%s</b><br/>" % _(u"ACCESS:") + kw["access"]
+            description = (
+                description + "<br/><br/><b>%s</b><br/>" % _("ACCESS:") + kw["access"]
+            )
             del kw["access"]
         if kw.get("bug_report", False):
             description = (
-                description + "<br/><br/><b>%s</b><br/>" % _(u"BUG REPORT:") + kw["bug_report"]
+                description
+                + "<br/><br/><b>%s</b><br/>" % _("BUG REPORT:")
+                + kw["bug_report"]
             )
             del kw["bug_report"]
         res.update({"description": description})

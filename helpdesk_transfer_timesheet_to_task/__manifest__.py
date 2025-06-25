@@ -14,7 +14,7 @@
         "helpdesk_mgmt",
         "helpdesk_mgmt_project",
         "helpdesk_mgmt_timesheet",
-        "sale_timesheet"
+        "sale_timesheet",
     ],
     "data": [],
     "installable": True,
