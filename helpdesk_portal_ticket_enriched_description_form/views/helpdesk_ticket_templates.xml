@@ -4,7 +4,7 @@
         id="helpdesk_create_ticket_description"
         name="Create Ticket: Description"
         inherit_id="helpdesk_mgmt.portal_create_ticket"
-        priority="40"
+        priority="99"
     >
         <xpath expr="//textarea[@name='description']/../.." position="replace">
             <div class="form-group">
