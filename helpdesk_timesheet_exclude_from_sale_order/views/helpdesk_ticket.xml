@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="timesheet_helpdesk_ticket_view_form_exclude_from_sale_order" model="ir.ui.view">
+        <field name="name">timesheet.helpdesk.ticket.view.form.exclude.from.sale.order</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='unit_amount']" position="before">
+                <field name="exclude_from_sale_order" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
