@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-03 21:50+0000\n"
-"PO-Revision-Date: 2024-10-03 21:50+0000\n"
+"POT-Creation-Date: 2025-07-08 12:26+0000\n"
+"PO-Revision-Date: 2025-07-08 12:26+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -43,14 +43,35 @@ msgstr ""
 "                    d'erreur Odoo)</span>"
 
 #. module: helpdesk_portal_ticket_enriched_description_form
+#. odoo-python
+#: code:addons/helpdesk_portal_ticket_enriched_description_form/controllers/main.py:0
+#, python-format
+msgid "ACCESS:"
+msgstr "ACCÈS :"
+
+#. module: helpdesk_portal_ticket_enriched_description_form
 #: model_terms:ir.ui.view,arch_db:helpdesk_portal_ticket_enriched_description_form.helpdesk_create_ticket_description
 msgid "Access"
 msgstr "Accès"
 
 #. module: helpdesk_portal_ticket_enriched_description_form
+#. odoo-python
+#: code:addons/helpdesk_portal_ticket_enriched_description_form/controllers/main.py:0
+#, python-format
+msgid "BUG REPORT:"
+msgstr "RAPPORT DE BUG :"
+
+#. module: helpdesk_portal_ticket_enriched_description_form
 #: model_terms:ir.ui.view,arch_db:helpdesk_portal_ticket_enriched_description_form.helpdesk_create_ticket_description
 msgid "Bug report"
 msgstr "Rapport de bug"
+
+#. module: helpdesk_portal_ticket_enriched_description_form
+#. odoo-python
+#: code:addons/helpdesk_portal_ticket_enriched_description_form/controllers/main.py:0
+#, python-format
+msgid "DESCRIPTION:"
+msgstr "DESCRIPTION :"
 
 #. module: helpdesk_portal_ticket_enriched_description_form
 #: model_terms:ir.ui.view,arch_db:helpdesk_portal_ticket_enriched_description_form.helpdesk_create_ticket_description
