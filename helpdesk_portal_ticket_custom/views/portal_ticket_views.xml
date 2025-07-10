@@ -5,6 +5,18 @@
         <span t-attf-class="o_priority_star fa fa-star#{'' if ticket.priority >= ticket_priority else '-o'}" t-attf-title="Priorité: {{'Très haute' if ticket.priority == '3' else 'Haute' if ticket.priority == '2' else 'Moyenne' if ticket.priority == '1' else 'Basse'}}" />
     </template>
 
+    <template id="ticket_priority_3_stars_template" name="Priority 3 Stars Widget Template">
+        <t t-call="helpdesk_portal_ticket_custom.ticket_priority_widget_template">
+            <t t-set="ticket_priority" t-value="'1'"/>
+        </t>
+        <t t-call="helpdesk_portal_ticket_custom.ticket_priority_widget_template">
+            <t t-set="ticket_priority" t-value="'2'"/>
+        </t>
+        <t t-call="helpdesk_portal_ticket_custom.ticket_priority_widget_template">
+            <t t-set="ticket_priority" t-value="'3'"/>
+        </t>
+    </template>
+
     <!-- Ticket portal list -->
     <template id="portal_ticket_list_inherit" inherit_id="helpdesk_mgmt.portal_ticket_list" priority="1">
         <!-- Add priority field -->
@@ -13,16 +25,18 @@
         </xpath>
         <xpath expr="//tbody/t/tr/td[2]" position="after">
             <td>
-                <t t-call="helpdesk_portal_ticket_custom.ticket_priority_widget_template">
-                    <t t-set="ticket_priority" t-value="'1'"/>
-                </t>
-                <t t-call="helpdesk_portal_ticket_custom.ticket_priority_widget_template">
-                    <t t-set="ticket_priority" t-value="'2'"/>
-                </t>
-                <t t-call="helpdesk_portal_ticket_custom.ticket_priority_widget_template">
-                    <t t-set="ticket_priority" t-value="'3'"/>
+                <t t-call="helpdesk_portal_ticket_custom.ticket_priority_3_stars_template">
                 </t>
             </td>
+        </xpath>
+    </template>
+
+    <template id="portal_ticket_form_inherit" inherit_id="helpdesk_mgmt.portal_helpdesk_ticket_page">
+        <xpath expr="//div[@class='col-9']" position="before">
+            <div>
+                <t t-call="helpdesk_portal_ticket_custom.ticket_priority_3_stars_template">
+                </t>
+            </div>
         </xpath>
     </template>
 
