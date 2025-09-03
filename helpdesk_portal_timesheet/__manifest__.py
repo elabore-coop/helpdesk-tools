@@ -3,7 +3,7 @@
 
 {
     "name": "helpdesk_portal_timesheet",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "author": "Elabore",
     "website": "https://elabore.coop",
     "maintainer": "Elabore",
@@ -12,7 +12,7 @@
     "summary": "Show ticket timesheets in portal view",
     # any module necessary for this one to work correctly
     "depends": [
-        "helpdesk_mgmt_timesheet"
+        "helpdesk_mgmt_timesheet","sale_timesheet_line_exclude",
     ],
     "qweb": [],
     "external_dependencies": {
