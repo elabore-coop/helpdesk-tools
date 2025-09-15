@@ -1,4 +1,5 @@
 import odoo.http as http
+
 from odoo.addons.helpdesk_mgmt.controllers.main import HelpdeskTicketController
 
 
@@ -13,7 +14,7 @@ class HelpdeskTicketControllerPriority(HelpdeskTicketController):
 
     @http.route("/new/ticket", type="http", auth="user", website=True)
     def create_new_ticket(self, **kw):
-        res = super(HelpdeskTicketControllerPriority, self).create_new_ticket(**kw)
+        res = super().create_new_ticket(**kw)
         res.qcontext["priorities"] = self._get_ticket_priorities()
         return res
 

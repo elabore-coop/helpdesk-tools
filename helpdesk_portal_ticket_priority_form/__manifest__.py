@@ -5,7 +5,7 @@
     "name": "helpdesk_portal_ticket_priority_form",
     "version": "16.0.1.0.0",
     "author": "Elabore",
-    "website": "https://elabore.coop",
+    "website": "https://github.com/elabore-coop/helpdesk-tools",
     "maintainer": "Stéphan Sainléger",
     "license": "AGPL-3",
     "category": "Tools",

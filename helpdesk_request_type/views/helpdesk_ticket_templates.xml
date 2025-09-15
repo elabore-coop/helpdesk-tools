@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <template id="portal_helpdesk_ticket_request_type" name="My Ticket: Request Type"
-        inherit_id="helpdesk_mgmt.portal_helpdesk_ticket_page" priority="40">
+    <template
+        id="portal_helpdesk_ticket_request_type"
+        name="My Ticket: Request Type"
+        inherit_id="helpdesk_mgmt.portal_helpdesk_ticket_page"
+        priority="40"
+    >
         <xpath expr="//div[@name='portal_ticket_col_0']" position="inside">
             <div t-if="ticket.request_type_id">
                 <strong>Request type:</strong>
@@ -10,8 +14,12 @@
         </xpath>
     </template>
 
-    <template id="portal_create_ticket_request-type" name="Create Ticket: Request Type"
-        inherit_id="helpdesk_mgmt.portal_create_ticket" priority="40">
+    <template
+        id="portal_create_ticket_request-type"
+        name="Create Ticket: Request Type"
+        inherit_id="helpdesk_mgmt.portal_create_ticket"
+        priority="40"
+    >
         <xpath expr="//form/div[2]" position="after">
             <div class="form-group">
                 <label

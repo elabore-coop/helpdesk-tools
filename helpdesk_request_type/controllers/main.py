@@ -1,11 +1,12 @@
 import odoo.http as http
+
 from odoo.addons.helpdesk_mgmt.controllers.main import HelpdeskTicketController
 
-class HelpdeskTicketControllerRequestType(HelpdeskTicketController):
 
+class HelpdeskTicketControllerRequestType(HelpdeskTicketController):
     @http.route("/new/ticket", type="http", auth="user", website=True)
     def create_new_ticket(self, **kw):
-        res = super(HelpdeskTicketControllerRequestType, self).create_new_ticket(**kw)
+        res = super().create_new_ticket(**kw)
         request_types = http.request.env["helpdesk.request.type"].search([])
         res.qcontext["request_types"] = request_types
         return res

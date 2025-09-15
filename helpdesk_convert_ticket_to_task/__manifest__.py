@@ -4,7 +4,7 @@
     "name": "helpdesk_convert_ticket_to_task",
     "version": "16.0.1.0.0",
     "author": "Elabore",
-    "website": "https://elabore.coop",
+    "website": "https://github.com/elabore-coop/helpdesk-tools",
     "maintainer": "Quentin Mondot",
     "license": "AGPL-3",
     "category": "Tools",
@@ -13,10 +13,13 @@
         "base",
         "helpdesk_mgmt",
         "helpdesk_mgmt_project",
-        "helpdesk_request_type",  # to create the helpdesk.request.type model and have the field request_type_id in the helpdesk.ticket model
-        "project_request_data",  # to have the fields service_id and request_type_id in the project.task model
+        # to create the helpdesk.request.type model and have the field request_type_id
+        # in the helpdesk.ticket model
+        "helpdesk_request_type",
+        # to have the fields service_id and request_type_id in the project.task model
+        "project_request_data",
         "project_task_add_very_high",  # to have priority values 2 and 3 on tasks
-        "helpdesk_transfer_timesheet_to_task"  # to copy timesheets from ticket to task
+        "helpdesk_transfer_timesheet_to_task",  # to copy timesheets from ticket to task
     ],
     "data": [
         "views/helpdesk_convert_ticket_to_task.xml",

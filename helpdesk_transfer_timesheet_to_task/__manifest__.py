@@ -4,7 +4,7 @@
     "name": "helpdesk_transfer_timesheet_to_task",
     "version": "16.0.1.0.0",
     "author": "Elabore",
-    "website": "https://elabore.coop",
+    "website": "https://github.com/elabore-coop/helpdesk-tools",
     "maintainer": "Quentin Mondot",
     "license": "AGPL-3",
     "category": "Tools",
@@ -14,7 +14,7 @@
         "helpdesk_mgmt",
         "helpdesk_mgmt_project",
         "helpdesk_mgmt_timesheet",
-        "sale_timesheet"
+        "sale_timesheet",
     ],
     "data": [],
     "installable": True,

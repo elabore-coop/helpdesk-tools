@@ -12,7 +12,8 @@
     "summary": "Show ticket timesheets in portal view",
     # any module necessary for this one to work correctly
     "depends": [
-        "helpdesk_mgmt_timesheet","sale_timesheet_line_exclude",
+        "helpdesk_mgmt_timesheet",
+        "sale_timesheet_line_exclude",
     ],
     "qweb": [],
     "external_dependencies": {

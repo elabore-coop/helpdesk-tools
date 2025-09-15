@@ -8,7 +8,7 @@
     "website": "https://elabore.coop",
     "license": "LGPL-3",
     "category": "Helpdesk",
-    "depends": ["sale_timesheet_line_exclude","helpdesk_mgmt_timesheet"],
+    "depends": ["sale_timesheet_line_exclude", "helpdesk_mgmt_timesheet"],
     "data": ["views/helpdesk_ticket.xml"],
     "installable": True,
     "application": False,

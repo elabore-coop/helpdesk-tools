@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
     <record id="helpdesk_request_type_view_tree" model="ir.ui.view">
         <field name="name">helpdesk.request.type.view.tree</field>
         <field name="model">helpdesk.request.type</field>
         <field name="arch" type="xml">
-            <tree string="Request Types" editable="top" default_order="sequence">
+          <tree editable="top" default_order="sequence">
                 <field name="sequence" widget="handle" />
                 <field name="name" />
             </tree>
@@ -23,6 +23,7 @@
         action="act_helpdesk_request_types_list"
         parent="helpdesk_mgmt.helpdesk_ticket_config_main_menu"
         sequence="99"
-        name="Request Types" />
+        name="Request Types"
+    />
 
 </odoo>

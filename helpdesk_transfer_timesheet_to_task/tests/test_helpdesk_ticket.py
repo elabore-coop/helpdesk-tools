@@ -2,9 +2,8 @@ from odoo.tests.common import TransactionCase
 
 
 class TestHelpdeskTicket(TransactionCase):
-
     def setUp(self):
-        super(TestHelpdeskTicket, self).setUp()
+        super().setUp()
         self.HelpdeskTicket = self.env["helpdesk.ticket"]
         self.ProjectTask = self.env["project.task"]
         self.AccountAnalyticLine = self.env["account.analytic.line"]

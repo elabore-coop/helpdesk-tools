@@ -5,11 +5,11 @@
     "name": "helpdesk_portal_ticket_enriched_description_form",
     "version": "16.0.1.0.1",
     "author": "Elabore",
-    "website": "https://elabore.coop",
+    "website": "https://github.com/elabore-coop/helpdesk-tools",
     "maintainer": "Stéphan Sainléger",
     "license": "AGPL-3",
     "category": "Tools",
-    "summary": "Add fieds in ticket creation portal form to enrich description content.",
+    "summary": "Add fieds in ticket creation portal form to enrich description data.",
     # any module necessary for this one to work correctly
     "depends": [
         "base",
